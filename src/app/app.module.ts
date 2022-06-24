@@ -15,6 +15,10 @@ import { LayoutComponent } from './components/home/layout/layout.component';
 import { CandidatComponent } from './components/home/candidat/candidat.component';
 import { CandidatureDetailsComponent } from './components/home/candidature-details/candidature-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DatePipe } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { RechercheCandidatureTitrePipe } from './pipes/recherche-candidature-titre.pipe';
+
 
 @NgModule({
   declarations: [
@@ -27,17 +31,19 @@ import { ProfileComponent } from './components/profile/profile.component';
     LayoutComponent,
     CandidatComponent,
     CandidatureDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    RechercheCandidatureTitrePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -36,6 +36,12 @@ export class CandidatureComponent implements OnInit {
     })
   }
 
+  detail(cand:any){
+    console.log("here détail",cand);
+    localStorage.setItem('id_candidature',JSON.stringify(cand)); 
+    this.router.navigateByUrl("/home/candidature-details")
+  }
+
   getCandidatures(){
     this.candidaturesService.getCandidatures().subscribe(
       (res:any) => {
@@ -51,46 +57,46 @@ export class CandidatureComponent implements OnInit {
     })
   }
 
-  saveCandidature(){
-    if(this.formCandidature.invalid){
-      this.submitted=true;
-      console.log("invalid")
-      console.table(this.formCandidature.value);
-      return ;
-    }
-    let formData = new FormData();
-    formData.append("nom",this.formCandidature.value.nom);
-    formData.append("prenom",this.formCandidature.value.prenom);
-    formData.append("file",this.selectedFile[0]);
+  // saveCandidature(){
+  //   if(this.formCandidature.invalid){
+  //     this.submitted=true;
+  //     console.log("invalid")
+  //     console.table(this.formCandidature.value);
+  //     return ;
+  //   }
+  //   let formData = new FormData();
+  //   formData.append("nom",this.formCandidature.value.nom);
+  //   formData.append("prenom",this.formCandidature.value.prenom);
+  //   formData.append("file",this.selectedFile[0]);
 
-    this.candidaturesService.createCandidature(formData).subscribe( data =>{
-      console.log(data);
-      this.getCandidatures();
-    })
-  }
+  //   this.candidaturesService.createCandidature(formData).subscribe( data =>{
+  //     console.log(data);
+  //     this.getCandidatures();
+  //   })
+  // }
 
-  goToCandidatureList(){
-    this.router.navigateByUrl('/home/candidature');
-  }
+  // goToCandidatureList(){
+  //   this.router.navigateByUrl('/home/candidature');
+  // }
 
-  public onFileChanged(event:any) {
-    //Select File
-//        console.log("formGroup : ",this.formEmploye.value)
-    this.selectedFile = <Array<File>>event.target.files
-    console.log('image : ',this.selectedFile)
-  }
+//   public onFileChanged(event:any) {
+//     //Select File
+// //        console.log("formGroup : ",this.formEmploye.value)
+//     this.selectedFile = <Array<File>>event.target.files
+//     console.log('image : ',this.selectedFile)
+//   }
 
-  updateCandidature(){
-    console.log("onSubmit")
-    console.log(this.formUpdateCandidature.value);
-    this.candidaturesService.updateCandidature(this.formUpdateCandidature.value,this.id).subscribe(
-      (res:any) => {
-        console.log("candidature",res);
-        this.router.navigateByUrl("home/candidature")
+  // updateCandidature(){
+  //   console.log("onSubmit")
+  //   console.log(this.formUpdateCandidature.value);
+  //   this.candidaturesService.updateCandidature(this.formUpdateCandidature.value,this.id).subscribe(
+  //     (res:any) => {
+  //       console.log("candidature",res);
+  //       this.router.navigateByUrl("home/candidature")
 
-      }
-    )
-  }
+  //     }
+  //   )
+  // }
 
   geneForm(){
     this.formCandidature = this.formBuilder.group({
@@ -126,5 +132,9 @@ export class CandidatureComponent implements OnInit {
     this.idToDelete=id;
     console.log("id to delete : ",id);
   }
+
+  
+
+
 
 }

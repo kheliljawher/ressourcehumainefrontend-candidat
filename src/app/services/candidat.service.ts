@@ -21,11 +21,11 @@ export class CandidatService {
   }*/
 
   createCandidat(candidat:any){
-    return this.http.post(`http://localhost:9190/api/candidat/create`,candidat);
+    return this.http.post(`http://localhost:9190/api/candidat/create`, candidat);
   }
 
   updateCandidat(candidat:any,id:any){
-    return this.http.put(`http://localhost:9190/api/candidat/${id}`,candidat);
+    return this.http.put(`http://localhost:9190/api/candidat/${id}`, candidat);
   }
 
   deleteCandidat(id:any) {

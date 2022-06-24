@@ -12,14 +12,16 @@ import { RegisterComponent } from './components/register/register.component';
 const routes: Routes = [
   {path:"home",component:HomeComponent, children:[
     {path:"layout",component:LayoutComponent},
-    {path:"candidat",component:CandidatComponent}
+    // {path:"candidature-details/:id_candidature",component:CandidatureDetailsComponent},
+    {path:"candidature-details",component:CandidatureDetailsComponent},
+    {path:"",component:CandidatureComponent},
+    {path:"profile",component:ProfileComponent},
+    {path:"candidat",component:CandidatComponent},
+ 
   ]},
+ 
   {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent},
-  {path:"candidature",component:CandidatureComponent},
-  {path:"candidature-details",component:CandidatureDetailsComponent},
-  {path:"profile",component:ProfileComponent}
-
+  {path:"register",component:RegisterComponent}
 ];
 
 @NgModule({

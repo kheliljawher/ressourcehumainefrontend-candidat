@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CandidatService } from 'src/app/services/candidat.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +10,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  candidats:any;
+  idToDelete:any;
+  id: any;
+  formCandidat:FormGroup;
+  formUpdateCandidat:FormGroup;
+  selectedFile:  Array<File> = [];
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResonse: any;
+  imageName: any;
+  submitted = false;
+  test:boolean=false;
+
+  constructor(private candidatsService:CandidatService,
+    private router: Router,
+    private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
+
+    this.getCandidats();
+
+    this.formCandidat = this.formBuilder.group({
+      nom:['',Validators.required],
+      prenom:['',Validators.required],
+     
+    })
+
   }
+
+  getCandidats(){
+    this.candidatsService.getCandidats().subscribe(
+      (res:any) => {
+        this.candidats = res
+        console.log("candidats : ",this.candidats)}
+    )
+  }
+
+
 
 }
