@@ -15,9 +15,13 @@ export class HeaderComponent implements OnInit {
 
   
   logout(){
+    console.log("here logout");
+    
     localStorage.removeItem("id_token");
         localStorage.removeItem("expires_at");
-        localStorage.removeItem('stateCandidat')
+        localStorage.removeItem('stateCandidat');
+        localStorage.removeItem('candidat')
+
   }
 
 }

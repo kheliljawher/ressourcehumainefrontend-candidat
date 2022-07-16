@@ -34,7 +34,16 @@ export class ProfileComponent implements OnInit {
     this.formCandidat = this.formBuilder.group({
       nom:['',Validators.required],
       prenom:['',Validators.required],
-     
+      login:['',Validators.required],
+      password:['',Validators.required],
+      cin:['',Validators.required],
+      telephone:['',Validators.required],
+      email:['',Validators.required],
+      adresse:['',Validators.required],
+      date_Naissance:['',Validators.required],
+      sex:['',Validators.required],
+      confirmPassword:['',Validators.required],
+      image:['',Validators.required]
     })
 
   }

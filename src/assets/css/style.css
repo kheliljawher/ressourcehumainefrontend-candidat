@@ -1540,13 +1540,13 @@ table.dataTable thead > tr > td.sorting {
 
 .page-wrapper {
 	left: 0;
-	margin-left: 230px;
+	margin-left: 30px;
 	padding-top: 60px;
 	position: relative;
 	transition: all 0.2s ease-in-out;
 }
 .page-wrapper > .content {
-	padding: 30px;
+	padding: 60px;
 }
 .page-header {
 	margin-bottom: 1.875rem;

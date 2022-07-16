@@ -4,7 +4,7 @@
                 <div class="col">
                     <h3 class="page-title">Jobs</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a routerLink="../">Dashboard</a></li>
                         <li class="breadcrumb-item active">Jobs</li>
                     </ul>
                 </div>
@@ -44,7 +44,9 @@
             </div>
             <div class="col-md-4">
                 <div class="job-det-info job-widget">
-                    <a class="btn job-btn" href="#" data-toggle="modal" data-target="#apply_job">Apply For This Job</a>
+                    <a class="btn job-btn" id="ifcandidatNonConecte" href="#" data-toggle="modal" data-target="#apply_job" hidden>Apply For This Job</a>
+                    <a class="btn job-btn" (click)="verifCandidatConnecte()" >Apply For This Job</a>
+
                     <div class="info-list">
                         <span><i class="fa fa-bar-chart"></i></span>
                         <h5>Job Type</h5>
@@ -100,8 +102,8 @@
                 <div class="modal-body" *ngIf="loginCheck">
                     <form [formGroup]="formCandidat" (ngSubmit)="saveCandidat()">
                         <div class="form-group">
-                            <label>Login si state == 1</label>
-                            <input class="form-control" type="text" formControlName="login">
+                            <label>Login</label>
+                            <input class="form-control" type="text" formControlName="username">
                         </div>
                         <div class="form-group">
                             <label>Password </label>
@@ -126,7 +128,11 @@
                             </div>
                         </div>
                         <div class="submit-section">
-                            <button class="btn btn-primary submit-btn">Submit</button>
+                            <button class="btn btn-primary submit-btn">Sign up</button>
+                        </div>
+                        <br>
+                        <div class="account-footer">
+                            <p>You have an account ? <a (click)="changeForm2()" >Login</a></p>
                         </div>
                     </form>
                 </div>
@@ -134,8 +140,8 @@
                 <div class="modal-body" *ngIf="!loginCheck" >
                     <form [formGroup]="formLogin" (ngSubmit)="login()" >
                         <div class="form-group" >
-                            <label>Login si state == 0</label>
-                            <input class="form-control" type="text" formControlName="login">
+                            <label>Login</label>
+                            <input class="form-control" type="text" formControlName="username">
                         </div>
                         <div class="form-group">
                             <label>¨Password </label>
