@@ -5,8 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RechercheCandidatureTitrePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value:any,term:any ): any {
+    console.log("valus is : ",value);
+
+    console.log("titre candidature is ",term);
+    
+    
+    if(term==null){
+      return value;
+    }else{
+      return value.filter((item:any)=>(item.titre.includes(term)));
+    }
   }
 
 }

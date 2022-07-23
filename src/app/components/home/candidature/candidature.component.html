@@ -12,9 +12,22 @@
 					</div>
 				</div>
 				<!-- /Page Header -->
+
+				<!-- Search Form -->
+				<div class="main-search">
+					<form action="#">
+						<div class="input-group">
+							<input type="text" class="form-control" [(ngModel)]="titreCandidature">
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="button">Search</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- /Search Form -->
 				
 				<div class="row" >
-					<div class="col-md-6" *ngFor="let candidature of candidatures" (click)="detail(candidature)" >
+					<div class="col-md-6" *ngFor="let candidature of candidatures | rechercheCandidatureTitre: titreCandidature | paginate: { itemsPerPage: 8, currentPage: p}" (click)="detail(candidature)" >
 						<!-- <a class="job-list" *ngFor="let candidature of candidatures" routerLink="../candidature-details/{{candidature.id}}" > -->
 							<a class="job-list" >
 
@@ -35,7 +48,10 @@
 								</ul>
 							</div>
 						</a>
+						
 					</div>
+					<pagination-controls class="my-pagination"  (pageChange)="p = $event"   previousLabel="Précédent"
+                    nextLabel="Suivant " ></pagination-controls>
 				</div>
 			
 

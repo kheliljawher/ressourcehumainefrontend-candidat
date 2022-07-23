@@ -56,6 +56,40 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  saveCandidat() {
 
+    if (this.formCandidat.invalid) {
+      this.submitted = true;
+      console.log("invalid")
+      console.table(this.formCandidat.value);
+      //return ;
+    }
+
+    console.log("role is : ", this.formCandidat.value.role);
+
+    console.log('form is', this.formCandidat.value);
+
+    let formData = new FormData();
+    formData.append("nom", this.formCandidat.value.nom);
+    formData.append("prenom", this.formCandidat.value.prenom);
+    formData.append("login", this.formCandidat.value.login);
+    formData.append("password", this.formCandidat.value.password);
+    formData.append("cin", this.formCandidat.value.cin);
+    formData.append("telephone", this.formCandidat.value.telephone);
+    formData.append("email", this.formCandidat.value.email);
+    formData.append("adresse", this.formCandidat.value.adresse);
+    formData.append("poste", this.formCandidat.value.poste);
+    formData.append("date_Embauche", this.formCandidat.value.date_Embauche);
+    formData.append("date_Naissance", this.formCandidat.value.date_Naissance);
+    formData.append("file", this.selectedFile[0]);
+    formData.append("role", this.formCandidat.value.role);
+    formData.append("sexs", this.formCandidat.value.sexs);
+    formData.append("confirmPassword", this.formCandidat.value.confirmPassword);
+
+    console.log("formulaire", this.formCandidat.value)
+
+    //document.getElementById("add_emp_close").click();
+
+  }
 
 }

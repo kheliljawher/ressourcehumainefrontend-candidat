@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  stateCandidat:any=localStorage.getItem('stateCandidat')
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -21,6 +23,7 @@ export class HeaderComponent implements OnInit {
         localStorage.removeItem("expires_at");
         localStorage.removeItem('stateCandidat');
         localStorage.removeItem('candidat')
+        this.stateCandidat=0
 
   }
 

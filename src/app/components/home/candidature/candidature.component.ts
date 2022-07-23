@@ -20,7 +20,9 @@ export class CandidatureComponent implements OnInit {
   retrieveResonse: any;
   imageName: any;
   submitted = false;
-  test:boolean=false
+  test:boolean=false;
+  titreCandidature: string = "";
+  p: number = 1;
 
   constructor(private candidaturesService:CandidatureService,
     private router: Router,

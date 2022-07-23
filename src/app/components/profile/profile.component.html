@@ -22,11 +22,11 @@
                                 <a href="#"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
                             </div>
                         </div>
-                        <div class="profile-basic">
+                        <div class="profile-basic" >
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="profile-info-left">
-                                        <h3 class="user-name m-t-0 mb-0">{{candidats.nom}}</h3>
+                                        <h3 class="user-name m-t-0 mb-0">{{candidats?.nom}}</h3>
                                         <h6 class="text-muted">UI/UX Design Team</h6>
                                         <small class="text-muted">Web Designer</small>
                                         <div class="staff-id">Employee ID : FT-0001</div>
@@ -587,12 +587,12 @@
         <div class="tab-pane fade" id="bank_statutory">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title"> Basic Salary Information</h3>
-                    <form>
+                    <h3 class="card-title"> Basic Salary Information </h3>
+                    <form [formGroup]="formCandidat" (ngSubmit)="saveCandidat()">
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label class="col-form-label">Salary basis <span class="text-danger">*</span></label>
+                                    <label class="col-form-label">Salary basis  <span class="text-danger">*</span></label>
                                     <select class="select select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                         <option data-select2-id="3">Select salary basis type</option>
                                         <option>Hourly</option>

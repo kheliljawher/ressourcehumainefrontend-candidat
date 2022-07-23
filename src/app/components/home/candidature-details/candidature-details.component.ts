@@ -177,15 +177,20 @@ console.log("here from register to login");
   saveDemandeCandidature(){
     this.demandeCandidatureService.createDemandeCandidature({},this.candidatConnecte.id,this.candidature.id).subscribe((res:any)=>{
       console.log("this is demande candidature ",res);
-      this.router.navigateByUrl("../profile")      
+      this.router.navigateByUrl("home/profile");      
     })
   }
 
   async verifCandidatConnecte(){
     console.log("here click");
     if(localStorage.getItem('stateCandidat') == '1'){
+      console.log("here verif true");
+
+      console.log("here verif true",JSON.parse(localStorage.getItem('candidat') || ''));
+
+      
       this.loginCheck = true;
-      this.candidatConnecte = await JSON.parse(localStorage.getItem('candidat') || '');
+      this.candidatConnecte = await JSON.parse(localStorage.getItem('candidat') || '').utilisateur;
       this.saveDemandeCandidature();
     } else {
       document.getElementById("ifcandidatNonConecte").click();
